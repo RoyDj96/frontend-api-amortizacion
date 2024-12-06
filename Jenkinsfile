@@ -1,13 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Build') { 
-            steps {
-                nodejs('Node'){
-                    sh 'npm install'   
-                }
-            }
-        }
 
         stage('Ejecucion test playwright') {
             steps {
