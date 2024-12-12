@@ -11,7 +11,7 @@ pipeline {
             }
         }
 
-        satage('Crear contenedor temporal') {
+        stage('Crear contenedor temporal') {
             steps {
                 sh '''
                 docker run --rm -d --name frontend
