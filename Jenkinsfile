@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Create image f') {
+        stage('Create image') {
             steps {
                 sh 'docker build -t frontend .'
             }
@@ -9,7 +9,7 @@ pipeline {
 
         stage('Create temporary container') {
             steps {
-                sh 'docker run --rm -d --name vite-container -p 5173:5173 frontend'
+                sh 'docker run --rm -d --name vite-container -p 5173:5173'
             }
         }
 
