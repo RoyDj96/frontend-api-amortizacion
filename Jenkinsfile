@@ -13,6 +13,13 @@ pipeline {
             }
         }
 
+        stage('dependencies && run') { 
+            steps {
+                sh 'npm install'
+                sh 'npm run dev --host'
+            }
+        }
+
         stage('Ejecucion test playwright') {
             steps {
                 build job: 'pipeline-test', wait: true 
