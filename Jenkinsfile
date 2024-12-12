@@ -9,7 +9,7 @@ pipeline {
 
         stage('start image') {
             steps {
-                sh 'docker run --rm -d --name vite-container frontend'
+                sh 'docker run --rm -d --name container -p 5173:5173 frontend'
             }
         }
 
