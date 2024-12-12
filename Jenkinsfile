@@ -4,7 +4,7 @@ pipeline {
 
         stage('Ejecucion test playwright') {
             steps {
-                build job: 'pipeline_test', wait: true 
+                build job: 'pipeline-test', wait: true 
             }
         }
     }
@@ -13,7 +13,7 @@ pipeline {
             echo 'Todo perfecto.'
         }
         failure {
-            echo 'Hubo un error en quien sabe donde (._.) .'
+            echo 'Ocurrio una incidencia'
         }
     }
 }

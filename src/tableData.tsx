@@ -51,4 +51,3 @@ export default function TableData() {
     </>
   );
 }
-console.log("hola")
