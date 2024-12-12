@@ -39,7 +39,7 @@ pipeline {
             }
         }
         success {
-            echo 'Todo perfecto'
+            echo 'Test successful'
         }
         failure {
             echo 'Ocurrio una incidencia en el pipeline'
