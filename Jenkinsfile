@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Create image front') {
+        stage('Create image') {
             steps {
                 sh 'docker build -t frontend .'
             }
