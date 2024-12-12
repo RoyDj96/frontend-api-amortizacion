@@ -13,7 +13,7 @@ pipeline {
             echo 'Todo perfecto.'
         }
         failure {
-            echo 'Ocurrio una incidencia en el pipeline'
+            echo 'Ocurrio una incidencia'
         }
     }
 }
