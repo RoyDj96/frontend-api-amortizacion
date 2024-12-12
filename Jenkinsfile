@@ -13,7 +13,7 @@ pipeline {
             echo 'Todo perfecto.'
         }
         failure {
-            echo 'Ocurrio una incidencia'
+            echo 'Ocurrio una incidencia de test playwright'
         }
     }
 }
