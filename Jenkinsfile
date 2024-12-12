@@ -7,18 +7,17 @@ pipeline {
             }
         }
 
-        stage('Create temporary container') {
+        stage('start image') {
             steps {
-                sh 'docker run --rm -d --name vite-container -p 5173:5173'
+                sh 'docker run --rm -d --name vite-container frontend'
             }
         }
 
-        stage('dependencies && run') { 
+        /* stage('run') { 
             steps {
-                sh 'npm install'
                 sh 'npm run dev --host'
             }
-        }
+        } */
 
         stage('Ejecucion test playwright') {
             steps {
@@ -31,7 +30,7 @@ pipeline {
             // detener contenedor temporal
             script {
                 steps {
-                    sh 'docker stop frontend || true'
+                    sh 'docker stop frontend'
                 }
             }
         }
