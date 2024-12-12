@@ -1,25 +1,15 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:18'
-        }
-    }
+    agent any
     stages {
-        stage('install dependencies') {
+        stage('Create image') {
             steps {
-                sh 'npm install'
+                sh 'docker build -t frontend .'
             }
         }
 
-        stage('Crear contenedor temporal') {
+        stage('Create temporary container') {
             steps {
-                sh '''
-                docker run --rm -d --name frontend
-                -v "$(pwd):/app"
-                -w /app
-                -p 5173:5173
-                node:18 sh -c "npm install && npm run dev"
-                '''
+                sh 'docker run --rm -d --name vite-container -p 5173:5173 frontend'
             }
         }
 
