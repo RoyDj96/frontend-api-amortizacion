@@ -19,7 +19,7 @@ pipeline {
         }
     }
     post {
-        alway {
+        always {
             // detener contenedor temporal
             script {
                 sh 'docker stop frontend || true'
