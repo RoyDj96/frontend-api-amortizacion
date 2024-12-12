@@ -32,7 +32,7 @@ pipeline {
             echo 'Test successful'
         }
         failure {
-            echo 'Ocurrio una incidencia en el pipeline'
+            echo 'Ocurrio una incidencia en el pipeline este mijo'
         }
     }
 }
