@@ -1,6 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:18'
+        }
+    }
     stages {
+        stage('install dependencies') {
+            sh 'npm install'
+        }
 
         satage('Crear contenedor temporal') {
             sh '''
