@@ -9,15 +9,9 @@ pipeline {
 
         stage('start image') {
             steps {
-                sh 'docker run --rm -d --name container -p 5173:5173 frontend'
+                sh 'docker run --rm -d --name container -p 5173:5173 --add-host=host.docker.internal:host-gateway frontend'
             }
         }
-
-        /* stage('run') { 
-            steps {
-                sh 'npm run dev --host'
-            }
-        } */
 
         stage('Ejecucion test playwright') {
             steps {
@@ -30,7 +24,7 @@ pipeline {
             // detener contenedor temporal
             script {
                 steps {
-                    sh 'docker stop frontend'
+                    sh 'docker stop container'
                 }
             }
         }
