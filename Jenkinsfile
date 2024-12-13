@@ -9,7 +9,7 @@ pipeline {
 
         stage('start image') {
             steps {
-                sh 'docker run --rm -d --name container -p 5173:5173 --add-host=host.docker.internal:host-gateway frontend'
+                sh 'docker run --rm -d --name container --network host -p 5173:5173 frontend'
             }
         }
 
