@@ -9,6 +9,7 @@ pipeline {
         }
     stage('create container') {
         steps {
+            sh 'docker network ls'
             sh 'docker run --rm -d --name frontend --network jenkins front'
         }
     }
@@ -21,7 +22,7 @@ pipeline {
     }
     post {
         always {
-            sh 'docker rm -f frontrend || true'
+            sh 'docker rm -f frontend || true'
         }
 
         success {
