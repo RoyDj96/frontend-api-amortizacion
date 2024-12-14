@@ -10,7 +10,7 @@ pipeline {
     stage('create container') {
         steps {
             sh 'docker network ls'
-            sh 'docker run --rm -d --name frontend --network jenkins front'
+            sh 'docker run --rm -d --name frontend --network bridge front'
         }
     }
 
