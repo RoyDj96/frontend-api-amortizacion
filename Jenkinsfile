@@ -10,7 +10,7 @@ pipeline {
     stage('create container') {
         steps {
             sh 'docker network ls'
-            sh 'docker run --name frontend -p 5173:5173 --network bridge front'
+            sh 'docker run -p 5173:5173 --name frontend --network bridge front'
             sh 'docker logs frontend'
         }
     }
