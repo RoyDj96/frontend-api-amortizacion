@@ -11,6 +11,7 @@ pipeline {
         steps {
             sh 'docker network ls'
             sh 'docker run --rm -d --name frontend --network bridge front'
+            sh 'docker logs frontend'
         }
     }
 
