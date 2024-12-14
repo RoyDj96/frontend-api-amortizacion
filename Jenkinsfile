@@ -26,7 +26,7 @@ pipeline {
             echo 'Test successful'
         }
         failure {
-            echo 'Ocurrio una incidencia en el pipeline este mijo'
+            echo 'Ocurrio una incidencia en el pipeline'
         }
     }
 }
