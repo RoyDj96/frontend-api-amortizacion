@@ -2,17 +2,16 @@ pipeline {
     agent any
 
     stages {
-        stage('Dependency') {
-            agent {
-                docker {
-                    image 'node:20'
-                    args '-u root:root'  
-                }
-            }
+        stage('create image') {
             steps {
-                sh 'npm install'
+                sh 'docker build -t front .'
             }
         }
+    stage('create container') {
+        steps {
+            sh 'docker run --rm -d --name frontend --network jenkins front'
+        }
+    }
 
         /* stage('Ejecucion test playwright') {
             steps {
@@ -21,6 +20,9 @@ pipeline {
         } */
     }
     post {
+        always {
+            sh 'docker rm -f frontrend || true'
+        }
 
         success {
             echo 'Test successful'
