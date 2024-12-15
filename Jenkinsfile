@@ -15,11 +15,12 @@ pipeline {
         }
     }
 
-        /* stage('Ejecucion test playwright') {
-            steps {
-                build job: 'pipeline-test', wait: true 
-            }
-        } */
+    stage('Ejecucion test playwright') {
+        steps {
+            build job: 'pipeline-test', wait: true 
+        }
+    }
+
     }
     post {
         always {
