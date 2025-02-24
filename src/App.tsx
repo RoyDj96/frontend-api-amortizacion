@@ -20,7 +20,7 @@ function App() {
   const dataAmort = async () => {
     try {
       await axios
-        .post("http://localhost:3005/api/quota", {
+        .post("https://backend-api-amortizacion.onrender.com/api/quota", {
           Mto: mto,
           Vint: vint,
           Npla: npla,
