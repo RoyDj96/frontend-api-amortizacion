@@ -84,7 +84,7 @@ function App() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          height: "380px",
+          height: "450px",
           width: "760px",
           borderRadius: "10px",
           marginTop: "20px",
