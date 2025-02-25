@@ -8,41 +8,34 @@ import {
   TableRow,
 } from "@mui/material";
 
-export default function TableData() {
-  function createData(name: string, calories: number, fat: number) {
-    return { name, calories, fat };
-  }
+interface TableDataProps {
+  data: any; // Replace 'any' with the appropriate type if known
+}
 
-  const rows = [
-    createData("200.000", 9, 6),
-    createData("200.000", 2, 9),
-    createData("200.000", 262, 16),
-    createData("4.200.000", 35, 7),
-    createData("1.200.000", 5, 16.0),
-  ];
-
+export default function TableData ({ data }: TableDataProps) {
+  
   return (
     <>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Periodos</TableCell>
-              <TableCell align="right">Intereres</TableCell>
-              <TableCell align="right">Meses</TableCell>
+              <TableCell>Mes</TableCell>
+              <TableCell align="right">Capital</TableCell>
+              <TableCell align="right">Interes</TableCell>
+              <TableCell align="right">Saldo final</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {data.amortizacion && data.amortizacion.map((row: any, index: number) => (
               <TableRow
-                key={row.name}
+                key={index}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
+                <TableCell component="th" scope="row">{row.Mes}</TableCell>
+                <TableCell align="right">{row.capital}</TableCell>
+                <TableCell align="right">{row.interes}</TableCell>
+                <TableCell align="right">{row.saldo_final}</TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -16,7 +16,7 @@ function App() {
   const [vint, setVint] = useState("");
   const [npla, setNpla] = useState("");
   const [data, setData] = useState([]);
-
+  
   const dataAmort = async () => {
     try {
       await axios
@@ -27,8 +27,7 @@ function App() {
         })
         .then((res) => {
           console.log(res.data);
-          setData(data);
-          console.log(data, "🚜🚜");
+          setData(res.data);
         });
     } catch (error) {
       console.log(error);
@@ -103,7 +102,7 @@ function App() {
           marginBottom: "20px",
         }}
       >
-        <TableData />
+        <TableData data={data} />
       </Box>
     </>
   );
